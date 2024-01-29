@@ -1,6 +1,6 @@
-.taskInput {
+.task__input {
   background-color: var(--gray-500);
-  width: 16rem;
+  width: 100%;
   height: 3.56rem;
 
   border: 1px solid var(--gray-400);
@@ -10,7 +10,14 @@
   transition: 0.2s ease-in-out;
 
 }
-.taskInput:focus:focus-visible {
+
+.task__input:focus:focus-visible {
   border: 1px solid var(--purple-dark);
   outline: none;
+}
+
+@media(max-width: 768px) {
+  .task__input {
+    font-size: larger;
+  }
 }

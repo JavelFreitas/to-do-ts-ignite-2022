@@ -21,7 +21,7 @@ export function Input({ getNewTask, newTask }: IInputProps){
       <input
         name="task"
         placeholder='Adicione uma nova tarefa'
-        className={styles.taskInput}
+        className={styles.task__input}
         value={newTask}
         onChange={handleNewTaskChange}
         onInvalid={handleNewTaskInvalid}

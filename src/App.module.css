@@ -3,8 +3,19 @@
   margin: 2rem auto;
   padding: 0 1rem;
 
+  gap: 2rem;
+
   display: flex;
   justify-content: center;
+}
+
+.task__form {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: calc(0px - 4rem - 6px);
 }
 
 @media(max-width: 768px) {
@@ -13,5 +24,8 @@
   }
   .wrapper{
     grid-template-columns: 1fr;
+  }
+  .task__form {
+    width: 100%;
   }
 }

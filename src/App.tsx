@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Input } from './components/Input';
 
 import styles from './App.module.css';
+import { CreateTaskButton } from './components/CreateTaskButton';
 
 function App() {
   const [newTask, setNewTask] = useState('');
@@ -15,12 +16,13 @@ function App() {
     <>
         <Header/>
 
-        <div className={styles.wrapper}>
-          <form>
+        <section className={styles.wrapper}>
+          <form className={styles.task__form}>
             <Input getNewTask={handleGetNewTask} newTask={newTask}/>
+            <CreateTaskButton />
           </form>
 
-        </div>
+        </section>
     </>
   )
 }
