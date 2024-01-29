@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Header } from './components/Header';
 import { Input } from './components/Input';
 
@@ -12,12 +12,16 @@ function App() {
     setNewTask(task);
   }
 
+  function handleCreateNewTask(event: FormEvent){
+    event.preventDefault();
+  }
+
   return (
     <>
         <Header/>
 
         <section className={styles.wrapper}>
-          <form className={styles.task__form}>
+          <form onSubmit={handleCreateNewTask} className={styles.task__form}>
             <Input getNewTask={handleGetNewTask} newTask={newTask}/>
             <CreateTaskButton />
           </form>
