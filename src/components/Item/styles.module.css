@@ -1,0 +1,68 @@
+.task__item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  padding: 1rem;
+  gap:0.2rem;
+
+  border-radius: 8px;
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-400);
+}
+
+.task__item input {
+  display: none;
+}
+
+.task__item label {
+  display: flex;
+  gap: 1rem;
+}
+
+.content__p{
+  font-size: 0.875rem;
+  line-height: 140%;
+  user-select: none;
+
+  overflow: hidden;
+
+  transition: 0.2s all;
+}
+
+.checkbox {
+  border-radius: 100%;
+  height: 1.125rem;
+  width: 1.125rem;
+
+  transition: 0.2s all;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox--unchecked{
+  border:  2px solid var(--blue);
+  background-color: transparent;
+}
+
+.checkbox--unchecked:hover {
+  border: 1.7px solid var(--blue-dark);
+  background-color: transparent;
+}
+
+.checkbox--checked {
+  border: 2px solid var(--purple-dark);
+  background-color: var(--purple-dark);
+}
+
+.checkbox--checked:hover {
+  border: 2px solid var(--purple);
+  background-color: var(--purple);
+}
+
+
+.delete__div {
+  margin-top: calc(0px - 0.5rem);
+}
