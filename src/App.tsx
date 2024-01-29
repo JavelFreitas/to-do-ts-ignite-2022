@@ -4,7 +4,6 @@ import { Input } from './components/Input';
 
 import styles from './App.module.css';
 import { CreateTaskButton } from './components/CreateTaskButton';
-import { DeleteButton } from './components/DeleteButton';
 
 function App() {
   const [newTask, setNewTask] = useState('');
