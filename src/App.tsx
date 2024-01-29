@@ -1,14 +1,29 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Input } from './components/Input';
 
 import styles from './App.module.css';
 import { CreateTaskButton } from './components/CreateTaskButton';
 import { ITask, Item } from './components/Item';
+import { EmptyTasks } from './components/EmptyTasks';
 
 function App() {
   const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([]);
+  const [concludedTasks, setConcludedTasks] = useState(0);
+
+  useEffect(() => {
+    const concluded = tasks.reduce((acc, cur) => {
+
+      return acc + (cur.isChecked ? 1 : 0);
+    }, 0);
+
+    setTasks((state) => state.sort((a,) => {
+      return a.isChecked ? 1 : -1
+    }));
+
+    setConcludedTasks(concluded);
+  }, [tasks])
 
   function handleGetNewTask(task: string) {
     setNewTask(task);
@@ -27,7 +42,6 @@ function App() {
     setNewTask('');
     event.preventDefault();
   }
-
 
   function removeTask(id: number) {
     setTasks((state) => {
@@ -53,13 +67,23 @@ function App() {
           <Input getNewTask={handleGetNewTask} newTask={newTask} />
           <CreateTaskButton />
         </form>
-        {tasks.map((task) => {
-          return <Item
-            task={task}
-            removeTask={removeTask}
-            toggleChecked={toggleChecked}
-          />
-        })}
+
+        <div className={styles.progress__div}>
+          <p className={styles.tasksCreated__p}>Tarefas criadas <span>{tasks.length}</span></p>
+          <p className={styles.tasksConcluded__p}>Concluídas <span>{`${concludedTasks} de ${tasks.length}`}</span></p>
+        </div>
+
+        {tasks.length > 0
+          ? (tasks.map((task) => {
+            return <Item
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              toggleChecked={toggleChecked}
+            />
+          }))
+          : (<EmptyTasks />)
+        }
       </section>
     </>
   )

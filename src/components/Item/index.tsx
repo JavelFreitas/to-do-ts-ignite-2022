@@ -20,7 +20,10 @@ export function Item(props: IItemProps) {
 
   const checkboxClassname = (isChecked
     ? styles['checkbox--checked']
-    : styles['checkbox--unchecked'])
+    : styles['checkbox--unchecked']);
+  const contentClassname = (isChecked 
+    ? styles['content__p--checked']
+    : '')
 
   function handleCheckboxClick() {
     toggleChecked(id, !isChecked);
@@ -43,7 +46,7 @@ export function Item(props: IItemProps) {
             {isChecked && <Check />}
           </span>
         </div>
-        <p className={styles.content__p}>{content} </p>
+        <p className={`${styles.content__p} ${contentClassname}`}>{content} </p>
       </label>
       <div className={styles.delete__div} onClick={handleRemoveTask}>
         <DeleteButton size={24} />

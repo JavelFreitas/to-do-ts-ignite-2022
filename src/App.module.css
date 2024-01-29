@@ -5,8 +5,6 @@
   margin: 2rem auto;
   padding: 0 1rem;
 
-  gap: 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +17,35 @@
   gap: 0.5rem;
 
   margin-top: calc(0px - 3.5rem - 6px);
+}
+
+.progress__div{
+  margin-top: 4rem;
+  margin-bottom: 1.4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tasksCreated__p{
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.tasksConcluded__p {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.tasksCreated__p span, .tasksConcluded__p span{
+  color: var(--gray-200);
+  padding: 0.3rem 0.7rem;
+  
+  font-size: small;
+  font-weight: bold;
+  border-radius: 999px;
+  background-color: var(--gray-400);
 }
 
 @media(max-width: 768px) {
